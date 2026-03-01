@@ -328,67 +328,6 @@
             transform: scale(1.02);
         }
 
-        .resources-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .resource-card {
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(46, 62, 80, 0.1));
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 2px solid var(--secondary-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.2), rgba(46, 62, 80, 0.2));
-        }
-
-        .resource-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .resource-card h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .resource-card p {
-            font-size: 0.85rem;
-            color: var(--light-text);
-            margin-bottom: 1rem;
-        }
-
-        .download-btn {
-            background: var(--secondary-color);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .download-btn:hover {
-            background: var(--primary-color);
-            transform: scale(1.05);
-        }
-
         .gallery-section {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -447,10 +386,6 @@
                 order: 1;
             }
 
-            .resources-section {
-                grid-template-columns: 1fr;
-            }
-
             .gallery-section {
                 grid-template-columns: 1fr;
             }
@@ -489,9 +424,24 @@
         <div class="container">
             <section class="card">
                 <h2>Executive Summary</h2>
-                <p>Eng. Sameh Zaghloul is a Learn-it-ALL Master IT Solution Architect (Open Group Certified) with over 30 years of hands-on leadership in driving large-scale, mission-critical digital transformation programs. As the CTIO at Fixed Solutions Group, he orchestrates end-to-end innovation across complex environments including Government, Banking, Telecommunications, Healthcare, and Defense.</p>
+                <p>Eng. Sameh Zaghloul is a Learn-it-ALL Master IT Solution Architect (Open Group Certified) with 25+ years of hands-on leadership in driving large-scale, mission-critical digital transformation programs. As the CTIO at Fixed Solutions Group, he orchestrates end-to-end innovation across complex environments including Government, Banking, Telecommunications, Healthcare, and Defense.</p>
                 <br>
-                <p>His profile is uniquely "π-shaped," blending deep technical expertise in Generative AI, LLMOps, Blockchain frameworks, Cybersecurity architectures, and Quantum computing with a broad strategic foundation for seamless cross-domain integration. He is a recognized pioneer in National-scale projects, bridging the gap between exploratory pilots and governed, production-grade platforms.</p>
+                <p>His profile is uniquely "π-shaped," blending deep technical expertise in Generative AI, LLMOps, Blockchain frameworks, Cybersecurity architectures, and Quantum computing with a broad strategic foundation for seamless cross-domain integration. He has successfully architected and led 50+ complex projects utilizing cloud platforms (IBM, Azure, AWS), enterprise systems (SAP ERP, Oracle EBS), blockchain technologies, big data, IoT, and cognitive solutions. A recognized pioneer in National-scale projects, he bridges the gap between exploratory pilots and governed, production-grade platforms.</p>
+            </section>
+
+            <section class="card">
+                <h2>Career Progression & Leadership</h2>
+                <p>Professional positions held across IBM business units and industry sectors:</p>
+                <ul>
+                    <li><strong>CTIO & Enterprise Master IT Architect | Fixed Solutions Group (Current)</strong></li>
+                    <li><strong>IBM Complex Solution Architect (Band 9):</strong> 20+ years of IBM service in enterprise architecture and digital transformation</li>
+                    <li><strong>GBS – Complex Solutioning Lead (MEA Region)</strong></li>
+                    <li><strong>GTS - IT Strategy & Architecture Lead</strong></li>
+                    <li><strong>SWG - Cloud Computing Architect</strong></li>
+                    <li><strong>STG - Technology Manager, Cognitive Infrastructure</strong></li>
+                    <li><strong>GBS - Enterprise Architecture Lead</strong></li>
+                    <li><strong>IBM Systems Engineer</strong></li>
+                </ul>
             </section>
 
             <section class="card">
@@ -502,6 +452,7 @@
                     <li><strong>Member | Africa Quantum Consortium (AQC):</strong> Collaborating on pan-African Quantum research and infrastructure initiatives.</li>
                     <li><strong>Member | Egypt Quantum Computing Community (EgQCC):</strong> Driving local awareness and technical readiness for AI & Quantum technologies.</li>
                     <li><strong>Member | Egyptian National Network for Quantum Computing and AI:</strong> Advising on national policy and the integration of AI with quantum-classical hybrid systems.</li>
+                    <li><strong>Instructor | Certified "Architectural Thinking" Trainer:</strong> Trained 100+ practitioners globally on Blockchain technology and enterprise architecture patterns.</li>
                 </ul>
             </section>
 
@@ -572,59 +523,75 @@
                             <h4>Cybersecurity & Quantum Cryptography</h4>
                             <ul>
                                 <li>Quantum Readiness: Developing National Quantum Cryptography Strategies</li>
-                                <li>Cyber Resilience: Designing hardened architectures for Mission-Critical Infrastructure</li>
-                            </ul>
-                        </div>
-
-                        <div class="skill-category">
-                            <h4>Cloud & Infrastructure</h4>
-                            <ul>
-                                <li>Hybrid MultiCloud: Certified architect across IBM, Azure, and AWS</li>
-                                <li>Software-defined solutions: Specializing in SDN/SDS and resilient disaster recovery</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>National-Scale Digital Transformations</h2>
+                    Key IBM Clients & Complex Projects</h2>
+                <p>Led enterprise architecture and digital transformation initiatives across 50+ complex projects across multiple industries:</p>
                 
                 <div class="project-list">
                     <div class="project-item">
-                        <h3>National Quantum Cryptography Strategy</h3>
-                        <p class="project-org">MCIT (Egypt)</p>
-                        <p class="project-role">Strategy Lead</p>
-                        <p>Authoring the transition roadmap for PQC and hybrid quantum-classical security models.</p>
-                    </div>
-
-                    <div class="project-item">
                         <h3>National Digital Transformation</h3>
-                        <p class="project-org">ACA/MCIT (Egypt)</p>
-                        <p class="project-role">Lead Tech Architect</p>
-                        <p>Orchestrating cross-government interoperability and secure citizen-centric digital platforms.</p>
+                        <p class="project-org">ACA/MCIT – Egypt</p>
+                        <p class="project-role">Lead Technology Architect (2020-Present)</p>
+                        <p><strong>Scope:</strong> Orchestrating cross-government interoperability and secure citizen-centric digital platforms. Digital transformation strategy for government sector utilizing enterprise architecture best practices, AI and cognitive solutions, blockchain, and hybrid multicloud infrastructure.</p>
                     </div>
 
                     <div class="project-item">
                         <h3>Health Digital Transformation</h3>
-                        <p class="project-org">MoH (KSA & UAE)</p>
-                        <p class="project-role">Lead Enterprise Architect</p>
-                        <p>Designing nationwide healthcare informatics and resilient electronic health record (EHR) clouds.</p>
+                        <p class="project-org">Ministry of Health (KSA)</p>
+                        <p class="project-role">Lead Enterprise Architect (2018)</p>
+                        <p><strong>Scope:</strong> Designing nationwide healthcare informatics and resilient electronic health record (EHR) cloud platforms with secure data governance and interoperability across healthcare facilities.</p>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>BigData & HPC Platform</h3>
+                        <p class="project-org">Saudi Aramco – KSA</p>
+                        <p class="project-role">Lead Technology Architect (2019)</p>
+                        <p><strong>Scope:</strong> Implementing hybrid AI/HPC platform for seismic imaging, reservoir simulation, and predictive AI models in Oil & Gas exploration and production.</p>
                     </div>
 
                     <div class="project-item">
                         <h3>National eKYC Blockchain</h3>
-                        <p class="project-org">CBE & NBE (Egypt)</p>
-                        <p class="project-role">Lead Architect</p>
-                        <p>Financial-grade DLT architecture for decentralized identity and banking compliance.</p>
+                        <p class="project-org">Central Bank of Egypt (CBE) & National Bank of Egypt (NBE)</p>
+                        <p class="project-role">Lead Enterprise Architect (2017)</p>
+                        <p><strong>Scope:</strong> Financial-grade distributed ledger technology (DLT) architecture for decentralized identity (DID) and Know-Your-Customer (KYC)/Anti-Money-Laundering (AML) compliance across banking sector.</p>
                     </div>
 
                     <div class="project-item">
-                        <h3>AI & HPC Platform</h3>
-                        <p class="project-org">Saudi Aramco</p>
-                        <p class="project-role">Lead Tech Architect</p>
-                        <p>Implementing High-Performance Computing for seismic imaging and predictive AI models.</p>
+                        <h3>Commercial Banking Blockchain Platforms</h3>
+                        <p class="project-org">Commercial International Bank (CIB) – Egypt | PepsiCo – UAE | Standard Bank (SBSA) – South Africa</p>
+                        <p class="project-role">Lead Architect</p>
+                        <p><strong>Scope:</strong> Enterprise blockchain solutions leveraging Hyperledger Fabric, Hyperledger Indy, and R3 Corda frameworks for secure financial transactions, supply chain, and data integrity.</p>
                     </div>
+
+                    <div class="project-item">
+                        <h3>Digital Media Hybrid Cloud</h3>
+                        <p class="project-org">Media Cloud – South Africa</p>
+                        <p class="project-role">Lead Technology Architect (2016)</p>
+                        <p><strong>Scope:</strong> Hybrid cloud architecture for telecommunications and digital media services with resilient disaster recovery and multi-region failover capabilities.</p>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>National Quantum Cryptography Strategy</h3>
+                        <p class=", Badges & Recognitions</h2>
+                <p>60+ industry and IBM certification badges and professional recognitions, including:</p>
+                
+                <div class="certifications">
+                    <span class="cert-badge">The Open Group: Certified Master IT Architect</span>
+                    <span class="cert-badge">Certified Complex Solution Architect (CSA)</span>
+                    <span class="cert-badge">Certified Complex Solution Manager (CSM)</span>
+                    <span class="cert-badge">Certified Cloud Architect (IBM/Azure/AWS)</span>
+                    <span class="cert-badge">Certified ERP/CRM Technical Consultant</span>
+                    <span class="cert-badge">IBM: Certified Blockchain Architect</span>
+                    <span class="cert-badge">Hyperledger Fabric & Indy | R3 Corda Specialist</span>
+                    <span class="cert-badge">HPC/BigData Consultant</span>
+                    <span class="cert-badge">Data Science/Deep Learning/ML Expert</span>
+                    <span class="cert-badge">Watson IoT & Data Platform Practitioner</span>
+                    <span class="cert-badge">IBM Systems Expert Contributor – Level 3</span>
+                    <span class="cert-badge">MEA Regional Technical Exchange Speaker – Level 3</span>
+                    <span class="cert-badge">Architect Profession Badge – Level 3 (Thought Leader)</span>
+                    <span class="cert-badge">IBM Design Thinking Practitioner</span>
+                    <span class="cert-badge">Certified Scrum Product Owner</span>
+                    <span class="cert-badge">Cloud & Cognitive Patterns/Architecture Expert</span>
+                    <span class="cert-badge">IBM Intellectual Capital & IP Creator
 
                     <div class="project-item">
                         <h3>Smart Cloud Enterprise+</h3>
@@ -661,8 +628,8 @@
             </section>
 
             <section class="card">
-                <h2>Visual Assets & Resources</h2>
-                <p>Explore selected visual themes and graphic frameworks:</p>
+                <h2>Visual Assets & Framework</h2>
+                <p>Professional visual themes and core framework documentation:</p>
                 <div class="gallery-section">
                     <div class="gallery-item">
                         <img src="images/Fixed Theme.png" alt="Fixed Solutions Group Theme" class="gallery-image">
@@ -671,25 +638,6 @@
                     <div class="gallery-item">
                         <img src="images/ABCDQ-.jpg" alt="ABCD+Q Framework Diagram" class="gallery-image">
                         <div class="gallery-caption">ABCD+Q Framework</div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="card">
-                <h2>Downloadable Documents</h2>
-                <p>Access comprehensive professional documents and credentials:</p>
-                <div class="resources-section">
-                    <div class="resource-card">
-                        <div class="resource-icon">📄</div>
-                        <h4>One-Pager</h4>
-                        <p>Quick-reference professional summary</p>
-                        <a href="images/One-Pager_SAMeh Zaghloul.pdf" download class="download-btn">Download PDF</a>
-                    </div>
-                    <div class="resource-card">
-                        <div class="resource-icon">🏢</div>
-                        <h4>IBM Profile</h4>
-                        <p>Detailed IBM professional profile document</p>
-                        <a href="images/SAMeh Zaghloul_Profile IBM.pdf" download class="download-btn">Download PDF</a>
                     </div>
                 </div>
             </section>
