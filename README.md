@@ -1,3 +1,37 @@
+# SAMeh-Zaghloul.github.io
+
+Personal website for Eng. Sameh Zaghloul — CTIO & Enterprise IT Architect.
+## Overview
+- Single-file site: `index.html` with supporting images in the `images/` folder.
+- Presents executive summary, skills, experience, selected projects, certifications, and a visual gallery.
+
+## Preview locally
+Open `index.html` directly in your browser, or run a lightweight server from the project root:
+```bash
+python3 -m http.server 8000
+# then open http://localhost:8000
+```
+
+## Editing
+- Update `index.html` to change content and structure.
+- Add or replace assets in the `images/` directory (profile photo, theme, framework diagrams, PDFs archived separately).
+- After edits run:
+```bash
+git add index.html README.md images/
+git commit -m "Update site content"
+git push
+```
+
+## Recent updates
+- Integrated content from professional PDFs into the page (Experience, Projects, Certifications).
+- Restructured header with navigation and hero metrics, reorganized main sections for clarity, and refreshed gallery styles.
+
+## Contact
+Email: samah.saeed@fixed.global
+LinkedIn: https://www.linkedin.com/in/sameh-zaghloul-00b5151/
+
+## Contributing
+Fork and open a pull request with proposed changes. Keep edits focused to content and images unless otherwise agreed.
 # Eng. Sameh Zaghloul - Personal Portfolio Website
 
 A modern, responsive personal portfolio website showcasing the professional profile of Eng. Sameh Zaghloul, M.Sc., CTIO and Enterprise Master IT Architect.
