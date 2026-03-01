@@ -328,6 +328,103 @@
             transform: scale(1.02);
         }
 
+        .resources-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .resource-card {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(46, 62, 80, 0.1));
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.2), rgba(46, 62, 80, 0.2));
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .resource-card p {
+            font-size: 0.85rem;
+            color: var(--light-text);
+            margin-bottom: 1rem;
+        }
+
+        .download-btn {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .gallery-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
@@ -348,6 +445,14 @@
             
             .skills-list {
                 order: 1;
+            }
+
+            .resources-section {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-section {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -553,6 +658,40 @@
                     <li><strong>M.Sc. in Engineering</strong>, Cairo University, Faculty of Engineering (1992)</li>
                     <li><strong>B.Sc. in Engineering</strong>, Cairo University, Faculty of Engineering (1983 - 1988)</li>
                 </ul>
+            </section>
+
+            <section class="card">
+                <h2>Visual Assets & Resources</h2>
+                <p>Explore selected visual themes and graphic frameworks:</p>
+                <div class="gallery-section">
+                    <div class="gallery-item">
+                        <img src="images/Fixed Theme.png" alt="Fixed Solutions Group Theme" class="gallery-image">
+                        <div class="gallery-caption">Fixed Solutions Group Theme</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/ABCDQ-.jpg" alt="ABCD+Q Framework Diagram" class="gallery-image">
+                        <div class="gallery-caption">ABCD+Q Framework</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Downloadable Documents</h2>
+                <p>Access comprehensive professional documents and credentials:</p>
+                <div class="resources-section">
+                    <div class="resource-card">
+                        <div class="resource-icon">📄</div>
+                        <h4>One-Pager</h4>
+                        <p>Quick-reference professional summary</p>
+                        <a href="images/One-Pager_SAMeh Zaghloul.pdf" download class="download-btn">Download PDF</a>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">🏢</div>
+                        <h4>IBM Profile</h4>
+                        <p>Detailed IBM professional profile document</p>
+                        <a href="images/SAMeh Zaghloul_Profile IBM.pdf" download class="download-btn">Download PDF</a>
+                    </div>
+                </div>
             </section>
 
             <section class="card">
