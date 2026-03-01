@@ -36,6 +36,54 @@
             text-align: center;
         }
 
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-image-container {
+            flex: 0 0 auto;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image-container:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .profile-info {
+            flex: 1 1 auto;
+            text-align: left;
+            max-width: 600px;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-info {
+                text-align: center;
+                max-width: 100%;
+            }
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -190,9 +238,37 @@
         footer {
             background-color: var(--primary-color);
             color: white;
-            text-align: center;
             padding: 2rem 0;
             margin-top: 2rem;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            flex: 0 0 auto;
+        }
+
+        .company-logo {
+            max-height: 60px;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .company-logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .footer-info {
+            flex: 1 1 auto;
+            text-align: center;
         }
 
         .footer-links {
@@ -211,6 +287,48 @@
         }
 
         @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                order: 2;
+            }
+            
+            .footer-info {
+                order: 1;
+            }
+        }
+
+        .abcdq-framework {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .abcdq-image {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 12px;
+            border: 2px solid rgba(52, 152, 219, 0.3);
+        }
+
+        .framework-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .framework-image:hover {
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
             }
@@ -219,25 +337,44 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+            
+            .abcdq-framework {
+                grid-template-columns: 1fr;
+            }
+            
+            .abcdq-image {
+                order: 2;
+            }
+            
+            .skills-list {
+                order: 1;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Eng. Sameh Zaghloul, M.Sc.</h1>
-            <p class="subtitle">CTIO, Fixed Solutions Group | Enterprise Master IT Architect</p>
-            <p class="subtitle">Expert in ABCD+Q: AI, Blockchain, Cloud, Data, and Quantum Cryptography</p>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    📧 samah.saeed@fixed.global
+            <div class="header-content">
+                <div class="profile-image-container">
+                    <img src="images/Sameh00.jpeg" alt="Eng. Sameh Zaghloul" class="profile-image">
                 </div>
-                <div class="contact-item">
-                    🔗 LinkedIn: sameh-zaghloul
-                </div>
-                <div class="contact-item">
-                    🏆 Digital Credentials: youracclaim.com/user/sameh-zaghloul
+                <div class="profile-info">
+                    <h1>Eng. Sameh Zaghloul, M.Sc.</h1>
+                    <p class="subtitle">CTIO, Fixed Solutions Group | Enterprise Master IT Architect</p>
+                    <p class="subtitle">Expert in ABCD+Q: AI, Blockchain, Cloud, Data, and Quantum Cryptography</p>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            📧 samah.saeed@fixed.global
+                        </div>
+                        <div class="contact-item">
+                            🔗 LinkedIn: sameh-zaghloul
+                        </div>
+                        <div class="contact-item">
+                            🏆 Digital Credentials: youracclaim.com/user/sameh-zaghloul
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -304,38 +441,43 @@
             <section class="card">
                 <h2>Core Expertise: The ABCD+Q Framework</h2>
                 
-                <div class="skills-list">
-                    <div class="skill-category">
-                        <h4>Artificial Intelligence & Data Science</h4>
-                        <ul>
-                            <li>LLMOps & Generative AI: Designing structured deployment patterns and operational guardrails</li>
-                            <li>Deep Learning: Expert in distributed deep learning architectures</li>
-                            <li>HPC/HPDA: Specialist in High-Performance Computing and Data Analytics</li>
-                        </ul>
+                <div class="abcdq-framework">
+                    <div class="abcdq-image">
+                        <img src="images/ABCDQ-.jpg" alt="ABCD+Q Framework" class="framework-image">
                     </div>
+                    <div class="skills-list">
+                        <div class="skill-category">
+                            <h4>Artificial Intelligence & Data Science</h4>
+                            <ul>
+                                <li>LLMOps & Generative AI: Designing structured deployment patterns and operational guardrails</li>
+                                <li>Deep Learning: Expert in distributed deep learning architectures</li>
+                                <li>HPC/HPDA: Specialist in High-Performance Computing and Data Analytics</li>
+                            </ul>
+                        </div>
 
-                    <div class="skill-category">
-                        <h4>Blockchain & Web 3.0</h4>
-                        <ul>
-                            <li>Enterprise Frameworks: Hands-on architect for Hyperledger, R3 Corda, and Enterprise Ethereum</li>
-                            <li>National Identity: Leading decentralized identity (DID) and Decentralized PKI initiatives</li>
-                        </ul>
-                    </div>
+                        <div class="skill-category">
+                            <h4>Blockchain & Web 3.0</h4>
+                            <ul>
+                                <li>Enterprise Frameworks: Hands-on architect for Hyperledger, R3 Corda, and Enterprise Ethereum</li>
+                                <li>National Identity: Leading decentralized identity (DID) and Decentralized PKI initiatives</li>
+                            </ul>
+                        </div>
 
-                    <div class="skill-category">
-                        <h4>Cybersecurity & Quantum Cryptography</h4>
-                        <ul>
-                            <li>Quantum Readiness: Developing National Quantum Cryptography Strategies</li>
-                            <li>Cyber Resilience: Designing hardened architectures for Mission-Critical Infrastructure</li>
-                        </ul>
-                    </div>
+                        <div class="skill-category">
+                            <h4>Cybersecurity & Quantum Cryptography</h4>
+                            <ul>
+                                <li>Quantum Readiness: Developing National Quantum Cryptography Strategies</li>
+                                <li>Cyber Resilience: Designing hardened architectures for Mission-Critical Infrastructure</li>
+                            </ul>
+                        </div>
 
-                    <div class="skill-category">
-                        <h4>Cloud & Infrastructure</h4>
-                        <ul>
-                            <li>Hybrid MultiCloud: Certified architect across IBM, Azure, and AWS</li>
-                            <li>Software-defined solutions: Specializing in SDN/SDS and resilient disaster recovery</li>
-                        </ul>
+                        <div class="skill-category">
+                            <h4>Cloud & Infrastructure</h4>
+                            <ul>
+                                <li>Hybrid MultiCloud: Certified architect across IBM, Azure, and AWS</li>
+                                <li>Software-defined solutions: Specializing in SDN/SDS and resilient disaster recovery</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -425,11 +567,18 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Eng. Sameh Zaghloul. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="mailto:samah.saeed@fixed.global">Email</a>
-                <a href="https://www.linkedin.com/in/pub/sameh-zaghloul/" target="_blank">LinkedIn</a>
-                <a href="https://www.youracclaim.com/user/sameh-zaghloul" target="_blank">Digital Credentials</a>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/Fixed Theme.png" alt="Fixed Solutions Group" class="company-logo">
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2024 Eng. Sameh Zaghloul. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="mailto:samah.saeed@fixed.global">Email</a>
+                        <a href="https://www.linkedin.com/in/pub/sameh-zaghloul/" target="_blank">LinkedIn</a>
+                        <a href="https://www.youracclaim.com/user/sameh-zaghloul" target="_blank">Digital Credentials</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
