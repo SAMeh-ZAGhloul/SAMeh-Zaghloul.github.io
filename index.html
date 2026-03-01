@@ -8,84 +8,114 @@
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --text-color: #333;
-            --light-text: #666;
-            --bg-color: #f8f9fa;
-            --card-bg: #ffffff;
-            --border-color: #e9ecef;
-        }
+            <main class="main-content">
+                <div class="container">
+                    <section class="card" id="summary">
+                        <h2>Executive Summary</h2>
+                        <p>Eng. Sameh Zaghloul is a Master IT Solution Architect with 25+ years of cross-industry experience spanning Banking, Telecommunications, Government, Oil & Gas and Defense. He leads strategic digital transformation programs, architecting secure, scalable platforms that combine AI, data engineering, blockchain, cloud and post-quantum cryptography.</p>
+                        <p>Known for delivering 50+ complex projects, Sameh combines deep technical skill (enterprise architecture, HPC, ML/AI, blockchain) with leadership across multi-disciplinary teams and national-scale programs.</p>
+                    </section>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+                    <section class="card" id="skills">
+                        <h2>Core Skills</h2>
+                        <div class="expertise-grid">
+                            <div class="expertise-card">
+                                <h4>Enterprise & Business Architecture</h4>
+                                <ul>
+                                    <li>Target operating models, strategy alignment, process transformation</li>
+                                </ul>
+                            </div>
+                            <div class="expertise-card">
+                                <h4>Data & AI</h4>
+                                <ul>
+                                    <li>Data Mesh, Big Data, HPDA, LLMOps, Distributed Deep Learning</li>
+                                </ul>
+                            </div>
+                            <div class="expertise-card">
+                                <h4>Blockchain & DLT</h4>
+                                <ul>
+                                    <li>Hyperledger Fabric/Indy, R3 Corda, enterprise DIDs, financial-grade DLT</li>
+                                </ul>
+                            </div>
+                            <div class="expertise-card">
+                                <h4>Cloud & Infrastructure</h4>
+                                <ul>
+                                    <li>Hybrid multi-cloud, SDN/SDS, resilient IaaS/PaaS, disaster recovery</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-        }
+                    <section class="card" id="experience">
+                        <h2>Experience & Roles</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h3>CTIO & Enterprise Master IT Architect — Fixed Solutions Group</h3>
+                                <p>Current — Leading enterprise architecture and innovation programs across the Fixed Solutions Group portfolio.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3>IBM — Complex Solution Architect (Band 9)</h3>
+                                <p>20+ years at IBM across multiple business units: GBS, GTS, SWG, STG. Roles included Enterprise Architecture Lead, Cloud Architect, Complex Solutioning Lead.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h3>Instructor & Thought Leadership</h3>
+                                <p>Trained 100+ practitioners globally on Blockchain technology. IBM Thought Leader and MEA Regional Technical Exchange speaker.</p>
+                            </div>
+                        </div>
+                    </section>
 
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
+                    <section class="card" id="projects">
+                        <h2>Selected Projects</h2>
+                        <div class="project-list">
+                            <div class="project-item">
+                                <h3>National Digital Transformation (ACA/MCIT)</h3>
+                                <p class="project-org">Lead Technology Architect — 2020</p>
+                                <p>Government-wide digital transformation: interoperability, citizen platforms, and secure identity frameworks.</p>
+                            </div>
+                            <div class="project-item">
+                                <h3>Health Digital Transformation</h3>
+                                <p class="project-org">Ministry of Health (KSA) — 2018</p>
+                                <p>Enterprise EHR and healthcare informatics with secure data governance.</p>
+                            </div>
+                            <div class="project-item">
+                                <h3>AI & HPC Platform</h3>
+                                <p class="project-org">Saudi Aramco — 2019</p>
+                                <p>High-performance computing for seismic imaging and predictive analytics.</p>
+                            </div>
+                            <div class="project-item">
+                                <h3>National eKYC Blockchain</h3>
+                                <p class="project-org">Central Bank of Egypt — 2017</p>
+                                <p>Financial-grade DLT for decentralized identity and KYC/AML compliance.</p>
+                            </div>
+                        </div>
+                    </section>
 
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
+                    <section class="card" id="certifications">
+                        <h2>Certifications & Recognition</h2>
+                        <p>60+ badges including Certified Master IT Architect (Open Group), Certified Complex Solution Architect, Cloud certifications (IBM/Azure/AWS), Blockchain Architect, Data Science and HPC qualifications.</p>
+                        <div class="certifications" aria-hidden="false">
+                            <span class="cert-badge">Open Group: Master IT Architect</span>
+                            <span class="cert-badge">Certified Complex Solution Architect (CSA)</span>
+                            <span class="cert-badge">Cloud Architect (IBM/Azure/AWS)</span>
+                            <span class="cert-badge">Blockchain Architect (Hyperledger, R3)</span>
+                        </div>
+                    </section>
 
-        .profile-image-container {
-            flex: 0 0 auto;
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .profile-image-container:hover {
-            transform: scale(1.05);
-        }
-
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .profile-info {
-            flex: 1 1 auto;
-            text-align: left;
-            max-width: 600px;
-        }
-
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .profile-info {
-                text-align: center;
-                max-width: 100%;
-            }
-        }
-
-        .container {
-            max-width: 1200px;
+                    <section class="card">
+                        <h2>Visual Assets & Framework</h2>
+                        <div class="gallery-section">
+                            <div class="gallery-item">
+                                <img src="images/Fixed Theme.png" alt="Fixed Solutions Group Theme" class="gallery-image">
+                                <div class="gallery-caption">Fixed Solutions Group Theme</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/ABCDQ-.jpg" alt="ABCD+Q Framework Diagram" class="gallery-image">
+                                <div class="gallery-caption">ABCD+Q Framework</div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -395,25 +425,37 @@
 <body>
     <header>
         <div class="container">
+            <nav class="site-nav" aria-label="Primary navigation">
+                <a href="#summary">Summary</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
             <div class="header-content">
                 <div class="profile-image-container">
                     <img src="images/Sameh00.jpeg" alt="Eng. Sameh Zaghloul" class="profile-image">
                 </div>
+
                 <div class="profile-info">
                     <h1>Eng. Sameh Zaghloul, M.Sc.</h1>
-                    <p class="subtitle">CTIO, Fixed Solutions Group | Enterprise Master IT Architect</p>
-                    <p class="subtitle">Expert in ABCD+Q: AI, Blockchain, Cloud, Data, and Quantum Cryptography</p>
-                    
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            📧 samah.saeed@fixed.global
-                        </div>
-                        <div class="contact-item">
-                            🔗 LinkedIn: sameh-zaghloul
-                        </div>
-                        <div class="contact-item">
-                            🏆 Digital Credentials: youracclaim.com/user/sameh-zaghloul
-                        </div>
+                    <p class="subtitle">CTIO & Enterprise Master IT Architect — Fixed Solutions Group</p>
+                    <p class="subtitle">AI • Blockchain • Cloud • Data • Post‑Quantum Cryptography</p>
+
+                    <div class="hero-metrics" aria-hidden="false">
+                        <div class="metric">25+ Years</div>
+                        <div class="metric">50+ Projects</div>
+                        <div class="metric">60+ Certifications</div>
+                        <div class="metric">Cross‑Industry</div>
+                        <a class="btn-primary" href="#contact">Get in touch</a>
+                    </div>
+
+                    <div class="contact-info" id="contact">
+                        <div class="contact-item">📧 samah.saeed@fixed.global</div>
+                        <div class="contact-item">🔗 LinkedIn: <a href="https://www.linkedin.com/in/sameh-zaghloul-00b5151/" target="_blank" style="color:inherit;text-decoration:underline;">sameh-zaghloul</a></div>
+                        <div class="contact-item">🏆 Digital Credentials: <a href="https://www.youracclaim.com/user/sameh-zaghlou" target="_blank" style="color:inherit;text-decoration:underline;">youracclaim</a></div>
                     </div>
                 </div>
             </div>
