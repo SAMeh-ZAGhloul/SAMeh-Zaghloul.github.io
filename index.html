@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eng. Sameh Zaghloul - CTIO & Enterprise IT Architect</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-text: #666;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-color: #e9ecef;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .main-content {
+            padding: 3rem 0;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .expertise-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .expertise-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .project-list {
+            list-style: none;
+        }
+
+        .project-item {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .project-org {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .project-role {
+            font-style: italic;
+            color: var(--light-text);
+            margin-top: 0.5rem;
+        }
+
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .cert-badge {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Eng. Sameh Zaghloul, M.Sc.</h1>
+            <p class="subtitle">CTIO, Fixed Solutions Group | Enterprise Master IT Architect</p>
+            <p class="subtitle">Expert in ABCD+Q: AI, Blockchain, Cloud, Data, and Quantum Cryptography</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    📧 samah.saeed@fixed.global
+                </div>
+                <div class="contact-item">
+                    🔗 LinkedIn: sameh-zaghloul
+                </div>
+                <div class="contact-item">
+                    🏆 Digital Credentials: youracclaim.com/user/sameh-zaghloul
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="card">
+                <h2>Executive Summary</h2>
+                <p>Eng. Sameh Zaghloul is a Learn-it-ALL Master IT Solution Architect (Open Group Certified) with over 30 years of hands-on leadership in driving large-scale, mission-critical digital transformation programs. As the CTIO at Fixed Solutions Group, he orchestrates end-to-end innovation across complex environments including Government, Banking, Telecommunications, Healthcare, and Defense.</p>
+                <br>
+                <p>His profile is uniquely "π-shaped," blending deep technical expertise in Generative AI, LLMOps, Blockchain frameworks, Cybersecurity architectures, and Quantum computing with a broad strategic foundation for seamless cross-domain integration. He is a recognized pioneer in National-scale projects, bridging the gap between exploratory pilots and governed, production-grade platforms.</p>
+            </section>
+
+            <section class="card">
+                <h2>Volunteering & Leadership</h2>
+                <p>Building the AI & Quantum ecosystem across Africa and the Middle East.</p>
+                <ul>
+                    <li><strong>Consultant | IEEE Egypt Industry Consultant Network:</strong> Providing high-level technical advisory and architectural guidance to bridge the gap between academic research and industrial application in Egypt.</li>
+                    <li><strong>Member | Africa Quantum Consortium (AQC):</strong> Collaborating on pan-African Quantum research and infrastructure initiatives.</li>
+                    <li><strong>Member | Egypt Quantum Computing Community (EgQCC):</strong> Driving local awareness and technical readiness for AI & Quantum technologies.</li>
+                    <li><strong>Member | Egyptian National Network for Quantum Computing and AI:</strong> Advising on national policy and the integration of AI with quantum-classical hybrid systems.</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>Enterprise Architecture Domains</h2>
+                
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <h4>Business Architecture</h4>
+                        <ul>
+                            <li>Strategy Alignment: Designing target operating models for national initiatives (Digital Egypt, KSA Vision 2030)</li>
+                            <li>Process Transformation: Leading large-scale Business Process Automation (BPA) and optimization</li>
+                        </ul>
+                    </div>
+
+                    <div class="expertise-card">
+                        <h4>Data Architecture</h4>
+                        <ul>
+                            <li>Intelligence & Governance: Architecting Data Mesh and "Single Source of Truth" platforms</li>
+                            <li>Big Data & HPDA: Designing high-performance data analytics pipelines</li>
+                        </ul>
+                    </div>
+
+                    <div class="expertise-card">
+                        <h4>Application Architecture</h4>
+                        <ul>
+                            <li>Modernization: Transitioning legacy monolithic stacks into agile, Cloud-Native, and microservices-based ecosystems</li>
+                            <li>AI & LLMOps: Building the "Application of the Future" by integrating Generative AI and agentic frameworks</li>
+                        </ul>
+                    </div>
+
+                    <div class="expertise-card">
+                        <h4>Technology Infrastructure</h4>
+                        <ul>
+                            <li>Cloud & Hybrid: Architecting resilient IaaS/PaaS platforms and software-defined solutions (SDN/SDS)</li>
+                            <li>Quantum & Cybersecurity: Pioneering Post-Quantum Cryptography (PQC) and secure encrypted communication systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Core Expertise: The ABCD+Q Framework</h2>
+                
+                <div class="skills-list">
+                    <div class="skill-category">
+                        <h4>Artificial Intelligence & Data Science</h4>
+                        <ul>
+                            <li>LLMOps & Generative AI: Designing structured deployment patterns and operational guardrails</li>
+                            <li>Deep Learning: Expert in distributed deep learning architectures</li>
+                            <li>HPC/HPDA: Specialist in High-Performance Computing and Data Analytics</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Blockchain & Web 3.0</h4>
+                        <ul>
+                            <li>Enterprise Frameworks: Hands-on architect for Hyperledger, R3 Corda, and Enterprise Ethereum</li>
+                            <li>National Identity: Leading decentralized identity (DID) and Decentralized PKI initiatives</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Cybersecurity & Quantum Cryptography</h4>
+                        <ul>
+                            <li>Quantum Readiness: Developing National Quantum Cryptography Strategies</li>
+                            <li>Cyber Resilience: Designing hardened architectures for Mission-Critical Infrastructure</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>Cloud & Infrastructure</h4>
+                        <ul>
+                            <li>Hybrid MultiCloud: Certified architect across IBM, Azure, and AWS</li>
+                            <li>Software-defined solutions: Specializing in SDN/SDS and resilient disaster recovery</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>National-Scale Digital Transformations</h2>
+                
+                <div class="project-list">
+                    <div class="project-item">
+                        <h3>National Quantum Cryptography Strategy</h3>
+                        <p class="project-org">MCIT (Egypt)</p>
+                        <p class="project-role">Strategy Lead</p>
+                        <p>Authoring the transition roadmap for PQC and hybrid quantum-classical security models.</p>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>National Digital Transformation</h3>
+                        <p class="project-org">ACA/MCIT (Egypt)</p>
+                        <p class="project-role">Lead Tech Architect</p>
+                        <p>Orchestrating cross-government interoperability and secure citizen-centric digital platforms.</p>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>Health Digital Transformation</h3>
+                        <p class="project-org">MoH (KSA & UAE)</p>
+                        <p class="project-role">Lead Enterprise Architect</p>
+                        <p>Designing nationwide healthcare informatics and resilient electronic health record (EHR) clouds.</p>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>National eKYC Blockchain</h3>
+                        <p class="project-org">CBE & NBE (Egypt)</p>
+                        <p class="project-role">Lead Architect</p>
+                        <p>Financial-grade DLT architecture for decentralized identity and banking compliance.</p>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>AI & HPC Platform</h3>
+                        <p class="project-org">Saudi Aramco</p>
+                        <p class="project-role">Lead Tech Architect</p>
+                        <p>Implementing High-Performance Computing for seismic imaging and predictive AI models.</p>
+                    </div>
+
+                    <div class="project-item">
+                        <h3>Smart Cloud Enterprise+</h3>
+                        <p class="project-org">IBM (Global)</p>
+                        <p class="project-role">Core Architect</p>
+                        <p>Member of the WW team designing the enterprise-scale IaaS platform for mission-critical SAP/Oracle workloads.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Certifications & Recognitions</h2>
+                <p>The professional achievements are visually represented by over 60 IBM and industry certification badges, including:</p>
+                
+                <div class="certifications">
+                    <span class="cert-badge">The Open Group: Certified Master Architect</span>
+                    <span class="cert-badge">Scrum Alliance: Certified Scrum Master</span>
+                    <span class="cert-badge">SAP ERP: Certified Technology Consultant</span>
+                    <span class="cert-badge">Oracle CRM/eBS: Certified Consultant</span>
+                    <span class="cert-badge">IBM: Complex Solution Architect (CSA)</span>
+                    <span class="cert-badge">IBM: Certified IT Architect (Thought Leader)</span>
+                    <span class="cert-badge">IBM: Certified Blockchain Architect</span>
+                    <span class="cert-badge">IBM: Hybrid Cloud Architect</span>
+                    <span class="cert-badge">IBM: Software-Defined-Solutions Architect</span>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Academic Background</h2>
+                <ul>
+                    <li><strong>M.Sc. in Engineering</strong>, Cairo University, Faculty of Engineering (1992)</li>
+                    <li><strong>B.Sc. in Engineering</strong>, Cairo University, Faculty of Engineering (1983 - 1988)</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <h2>Languages</h2>
+                <ul>
+                    <li><strong>English:</strong> Excellent (Read, Write, Speak)</li>
+                    <li><strong>Arabic:</strong> Excellent (Read, Write, Speak)</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Eng. Sameh Zaghloul. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="mailto:samah.saeed@fixed.global">Email</a>
+                <a href="https://www.linkedin.com/in/pub/sameh-zaghloul/" target="_blank">LinkedIn</a>
+                <a href="https://www.youracclaim.com/user/sameh-zaghloul" target="_blank">Digital Credentials</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
