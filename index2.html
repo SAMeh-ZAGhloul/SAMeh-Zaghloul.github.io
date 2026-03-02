@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eng. Sameh Zaghloul | Enterprise Master IT Architect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0e17;
+      --bg-secondary: #111827;
+      --fg: #f0f4f8;
+      --muted: #64748b;
+      --accent: #00d4aa;
+      --accent-secondary: #0ea5e9;
+      --card: rgba(17, 24, 39, 0.7);
+      --border: rgba(100, 116, 139, 0.2);
+      --glow: rgba(0, 212, 170, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      overflow-x: hidden;
+    }
+
+    .font-display {
+      font-family: 'Syne', sans-serif;
+    }
+
+    #quantum-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .gradient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .orb-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+      top: -200px;
+      right: -200px;
+      animation-delay: 0s;
+    }
+
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--accent-secondary) 0%, transparent 70%);
+      bottom: 20%;
+      left: -100px;
+      animation-delay: -7s;
+    }
+
+    .orb-3 {
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+      top: 50%;
+      right: 10%;
+      animation-delay: -14s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -30px) scale(1.05); }
+      50% { transform: translate(-20px, 20px) scale(0.95); }
+      75% { transform: translate(20px, 30px) scale(1.02); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .stagger-5 { transition-delay: 0.5s; }
+
+    .glass-card {
+      background: var(--card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(0, 212, 170, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 40px var(--glow);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, #00b894 100%);
+      color: var(--bg);
+      font-weight: 600;
+      padding: 14px 32px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--fg);
+      font-weight: 500;
+      padding: 14px 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(0, 212, 170, 0.05);
+    }
+
+    .framework-item {
+      position: relative;
+      padding: 24px;
+      cursor: pointer;
+    }
+
+    .framework-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .framework-item:hover::before {
+      opacity: 0.1;
+    }
+
+    .framework-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 32px;
+      padding-bottom: 48px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 20px var(--accent);
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 24px;
+      width: 2px;
+      height: calc(100% - 24px);
+      background: linear-gradient(180deg, var(--accent), transparent);
+    }
+
+    .timeline-item:last-child::after {
+      display: none;
+    }
+
+    .cert-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(0, 212, 170, 0.1);
+      border: 1px solid rgba(0, 212, 170, 0.2);
+      border-radius: 20px;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .cert-badge:hover {
+      background: rgba(0, 212, 170, 0.15);
+      border-color: rgba(0, 212, 170, 0.4);
+    }
+
+    .nav-link {
+      position: relative;
+      color: var(--muted);
+      transition: color 0.3s;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+
+    .nav-link:hover {
+      color: var(--fg);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .stat-number {
+      background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .gradient-orb {
+        animation: none;
+      }
+      .btn-primary::before {
+        display: none;
+      }
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .scroll-indicator {
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(10px); }
+      60% { transform: translateY(5px); }
+    }
+
+    .expertise-tab {
+      padding: 12px 24px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.3s;
+      border-radius: 8px;
+    }
+
+    .expertise-tab.active {
+      background: rgba(0, 212, 170, 0.1);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .expertise-tab:hover:not(.active) {
+      border-color: rgba(0, 212, 170, 0.5);
+      color: var(--fg);
+    }
+
+    .expertise-content {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .expertise-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="quantum-canvas"></canvas>
+  
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[rgba(10,14,23,0.8)] border-b border-[rgba(100,116,139,0.1)]">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="font-display font-bold text-xl tracking-tight" aria-label="Home">
+        SZ<span class="text-[var(--accent)]">.</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#expertise" class="nav-link text-sm font-medium">Expertise</a>
+        <a href="#projects" class="nav-link text-sm font-medium">Projects</a>
+        <a href="#credentials" class="nav-link text-sm font-medium">Credentials</a>
+        <a href="#contact" class="nav-link text-sm font-medium">Contact</a>
+      </div>
+      <button id="menu-toggle" class="md:hidden p-2" aria-label="Toggle menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-[var(--bg)] transform translate-x-full transition-transform duration-300 md:hidden">
+    <div class="flex flex-col items-center justify-center h-full gap-8">
+      <a href="#expertise" class="text-2xl font-display font-semibold" onclick="closeMobileMenu()">Expertise</a>
+      <a href="#projects" class="text-2xl font-display font-semibold" onclick="closeMobileMenu()">Projects</a>
+      <a href="#credentials" class="text-2xl font-display font-semibold" onclick="closeMobileMenu()">Credentials</a>
+      <a href="#contact" class="text-2xl font-display font-semibold" onclick="closeMobileMenu()">Contact</a>
+    </div>
+  </div>
+
+  <main class="relative z-10">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center pt-20 pb-16 px-6">
+      <div class="max-w-7xl mx-auto w-full">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="reveal stagger-1 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(0,212,170,0.1)] border border-[rgba(0,212,170,0.2)] mb-6">
+              <span class="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse"></span>
+              <span class="text-sm text-[var(--accent)]">Available for Advisory Roles</span>
+            </div>
+            
+            <h1 class="reveal stagger-2 font-display font-800 text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
+              Eng. Sameh<br>
+              <span class="text-[var(--accent)]">Zaghloul</span>
+            </h1>
+            
+            <p class="reveal stagger-3 text-xl md:text-2xl text-[var(--muted)] mb-4 font-light">
+              M.Sc. | Enterprise Master IT Architect
+            </p>
+            
+            <p class="reveal stagger-4 text-lg text-[var(--muted)] mb-8 max-w-xl">
+              CTIO at Fixed Solutions Group with 30+ years leading mission-critical digital transformations across Government, Banking, Telecommunications, Healthcare, and Defense sectors.
+            </p>
+
+            <div class="reveal stagger-5 flex flex-wrap gap-4 mb-12">
+              <a href="#contact" class="btn-primary">Get in Touch</a>
+              <a href="https://www.linkedin.com/in/pub/sameh-zaghloul/" target="_blank" rel="noopener" class="btn-secondary flex items-center gap-2">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                LinkedIn Profile
+              </a>
+            </div>
+
+            <div class="reveal stagger-5 grid grid-cols-3 gap-8">
+              <div>
+                <div class="stat-number font-display font-bold text-4xl">30+</div>
+                <div class="text-sm text-[var(--muted)] mt-1">Years Experience</div>
+              </div>
+              <div>
+                <div class="stat-number font-display font-bold text-4xl">60+</div>
+                <div class="text-sm text-[var(--muted)] mt-1">Certifications</div>
+              </div>
+              <div>
+                <div class="stat-number font-display font-bold text-4xl">5</div>
+                <div class="text-sm text-[var(--muted)] mt-1">Continents Served</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal stagger-4 relative">
+            <div class="glass-card rounded-2xl p-8 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[var(--accent)] to-transparent opacity-20 rounded-bl-full"></div>
+              
+              <h3 class="font-display font-semibold text-lg mb-6 text-[var(--accent)]">ABCD+Q Framework</h3>
+              
+              <div class="grid grid-cols-2 gap-4">
+                <div class="framework-item rounded-xl bg-[rgba(0,212,170,0.05)] border border-[rgba(0,212,170,0.1)]">
+                  <div class="framework-icon bg-gradient-to-br from-[#00d4aa] to-[#00b894]">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0a0e17" stroke-width="2">
+                      <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/>
+                      <circle cx="8" cy="14" r="1"/><circle cx="16" cy="14" r="1"/>
+                    </svg>
+                  </div>
+                  <div class="font-display font-semibold text-sm relative z-10">Artificial Intelligence</div>
+                  <div class="text-xs text-[var(--muted)] mt-1 relative z-10">LLMOps, GenAI</div>
+                </div>
+                
+                <div class="framework-item rounded-xl bg-[rgba(14,165,233,0.05)] border border-[rgba(14,165,233,0.1)]">
+                  <div class="framework-icon bg-gradient-to-br from-[#0ea5e9] to-[#0284c7]">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0a0e17" stroke-width="2">
+                      <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v3"/>
+                      <line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/>
+                    </svg>
+                  </div>
+                  <div class="font-display font-semibold text-sm relative z-10">Blockchain</div>
+                  <div class="text-xs text-[var(--muted)] mt-1 relative z-10">Hyperledger, Web3</div>
+                </div>
+                
+                <div class="framework-item rounded-xl bg-[rgba(99,102,241,0.05)] border border-[rgba(99,102,241,0.1)]">
+                  <div class="framework-icon bg-gradient-to-br from-[#6366f1] to-[#4f46e5]">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0a0e17" stroke-width="2">
+                      <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+                    </svg>
+                  </div>
+                  <div class="font-display font-semibold text-sm relative z-10">Cloud</div>
+                  <div class="text-xs text-[var(--muted)] mt-1 relative z-10">Hybrid, Multi-Cloud</div>
+                </div>
+                
+                <div class="framework-item rounded-xl bg-[rgba(236,72,153,0.05)] border border-[rgba(236,72,153,0.1)]">
+                  <div class="framework-icon bg-gradient-to-br from-[#ec4899] to-[#db2777]">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0a0e17" stroke-width="2">
+                      <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                    </svg>
+                  </div>
+                  <div class="font-display font-semibold text-sm relative z-10">Data</div>
+                  <div class="text-xs text-[var(--muted)] mt-1 relative z-10">Big Data, HPDA</div>
+                </div>
+              </div>
+              
+              <div class="mt-4 p-4 rounded-xl bg-gradient-to-r from-[rgba(0,212,170,0.1)] to-[rgba(14,165,233,0.1)] border border-[rgba(0,212,170,0.2)]">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00d4aa] to-[#0ea5e9] flex items-center justify-center">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0a0e17" stroke-width="2">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="font-display font-semibold">Quantum Cryptography</div>
+                    <div class="text-xs text-[var(--muted)]">Post-Quantum Security, PQC Migration</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 text-[var(--muted)]">
+          <span class="text-xs tracking-widest uppercase">Scroll</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M19 12l-7 7-7-7"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-24 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="reveal font-display font-bold text-4xl md:text-5xl mb-4">Core Expertise</h2>
+          <p class="reveal stagger-1 text-[var(--muted)] text-lg max-w-2xl mx-auto">
+            A uniquely π-shaped profile blending deep technical expertise with broad strategic foundation for seamless cross-domain integration.
+          </p>
+        </div>
+
+        <div class="reveal stagger-2 flex flex-wrap justify-center gap-3 mb-12">
+          <button class="expertise-tab active" data-tab="ai" aria-pressed="true">AI & Data Science</button>
+          <button class="expertise-tab" data-tab="blockchain" aria-pressed="false">Blockchain & Web3</button>
+          <button class="expertise-tab" data-tab="quantum" aria-pressed="false">Quantum & Security</button>
+          <button class="expertise-tab" data-tab="cloud" aria-pressed="false">Cloud Infrastructure</button>
+        </div>
+
+        <div class="reveal stagger-3">
+          <div id="ai-content" class="expertise-content active">
+            <div class="glass-card rounded-2xl p-8">
+              <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="font-display font-semibold text-2xl mb-4 text-[var(--accent)]">LLMOps & Generative AI</h3>
+                  <p class="text-[var(--muted)] mb-6">Designing structured deployment patterns, operational guardrails, and cost-risk models for production-grade AI platforms.</p>
+                  <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Production-grade AI platform architecture</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Distributed deep learning architectures</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Scalable inference pipelines</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="font-display font-semibold text-2xl mb-4 text-[var(--accent-secondary)]">HPC & Data Analytics</h3>
+                  <p class="text-[var(--muted)] mb-6">Specialist in High-Performance Computing and Data Analytics for complex industries.</p>
+                  <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent-secondary)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Seismic imaging pipelines (Aramco)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent-secondary)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Global demand forecasting (Coca-Cola)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent-secondary)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Computer vision systems</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="blockchain-content" class="expertise-content">
+            <div class="glass-card rounded-2xl p-8">
+              <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="font-display font-semibold text-2xl mb-4 text-[var(--accent)]">Enterprise Frameworks</h3>
+                  <p class="text-[var(--muted)] mb-6">Hands-on architect for major enterprise blockchain platforms.</p>
+                  <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Hyperledger Fabric & Indy</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>R3 Corda implementations</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Enterprise Ethereum solutions</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="font-display font-semibold text-2xl mb-4 text-[var(--accent-secondary)]">National Identity Systems</h3>
+                  <p class="text-[var(--muted)] mb-6">Leading decentralized identity initiatives for nationwide platforms.</p>
+                  <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent-secondary)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Decentralized Identity (DID)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent-secondary)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Decentralized PKI infrastructure</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent-secondary)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Nationwide eKYC platforms</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="quantum-content" class="expertise-content">
+            <div class="glass-card rounded-2xl p-8">
+              <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="font-display font-semibold text-2xl mb-4 text-[var(--accent)]">Quantum Readiness</h3>
+                  <p class="text-[var(--muted)] mb-6">Developing National Quantum Cryptography Strategies for post-quantum security.</p>
+                  <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Post-Quantum Cryptography (PQC)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Hybrid migration models</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Q-Day risk assessment frameworks</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="font-display font-semibold text-2xl mb-4 text-[var(--accent-secondary)]">Cyber Resilience</h3>
+                  <p class="text-[var(--muted)] mb-6">Designing hardened architectures for mission-critical infrastructure.</p>
+                  <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent-secondary)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Secure encrypted communications</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent-secondary)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Data integrity protection</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent-secondary)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Defense sector architectures</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="cloud-content" class="expertise-content">
+            <div class="glass-card rounded-2xl p-8">
+              <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h3 class="font-display font-semibold text-2xl mb-4 text-[var(--accent)]">Hybrid MultiCloud</h3>
+                  <p class="text-[var(--muted)] mb-6">Certified architect across major cloud platforms with enterprise specialization.</p>
+                  <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>IBM, Azure, AWS certified</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>IaaS/PaaS platform design</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>SAP/Oracle workload migration</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="font-display font-semibold text-2xl mb-4 text-[var(--accent-secondary)]">Software-Defined Infrastructure</h3>
+                  <p class="text-[var(--muted)] mb-6">Architecting resilient, modern infrastructure solutions.</p>
+                  <ul class="space-y-3">
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent-secondary)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>SDN/SDS architecture</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent-secondary)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Disaster recovery design</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                      <svg class="w-5 h-5 text-[var(--accent-secondary)] mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Mission-critical resiliency</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-6 bg-gradient-to-b from-transparent via-[rgba(0,212,170,0.02)] to-transparent">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="reveal font-display font-bold text-4xl md:text-5xl mb-4">National-Scale Transformations</h2>
+          <p class="reveal stagger-1 text-[var(--muted)] text-lg max-w-2xl mx-auto">
+            Pioneering projects bridging the gap between exploratory pilots and governed, production-grade platforms.
+          </p>
+        </div>
+
+        <div class="grid gap-6">
+          <!-- Featured Project -->
+          <div class="reveal stagger-2 glass-card rounded-2xl p-8 md:p-10">
+            <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="px-3 py-1 text-xs font-medium bg-[rgba(0,212,170,0.15)] text-[var(--accent)] rounded-full">National Strategy</span>
+                  <span class="text-sm text-[var(--muted)]">2025</span>
+                </div>
+                <h3 class="font-display font-bold text-2xl mb-3">National Quantum Cryptography Strategy</h3>
+                <p class="text-[var(--muted)] mb-4">MCIT, Egypt</p>
+                <p class="text-[var(--fg)] opacity-80">Authoring the transition roadmap for Post-Quantum Cryptography (PQC). Designing hybrid migration models and Q-Day risk assessment frameworks to safeguard national data integrity.</p>
+              </div>
+              <div class="md:text-right shrink-0">
+                <div class="text-sm text-[var(--muted)]">Role</div>
+                <div class="font-semibold text-[var(--accent)]">Strategy Lead / Master Architect</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="reveal stagger-3 glass-card rounded-2xl p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 text-xs font-medium bg-[rgba(14,165,233,0.15)] text-[var(--accent-secondary)] rounded-full">AI/ML</span>
+                <span class="text-sm text-[var(--muted)]">2026</span>
+              </div>
+              <h3 class="font-display font-bold text-xl mb-2">AI Digital Transformation & LLMOps</h3>
+              <p class="text-sm text-[var(--muted)] mb-3">EEHC, Egypt</p>
+              <p class="text-sm text-[var(--fg)] opacity-80">Designing production-grade Generative AI & LLMOps architectures for national utility optimization with distributed deep learning pipelines.</p>
+            </div>
+
+            <div class="reveal stagger-4 glass-card rounded-2xl p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 text-xs font-medium bg-[rgba(99,102,241,0.15)] text-[#818cf8] rounded-full">Blockchain</span>
+                <span class="text-sm text-[var(--muted)]">2017-2021</span>
+              </div>
+              <h3 class="font-display font-bold text-xl mb-2">Central Bank eKYC Blockchain</h3>
+              <p class="text-sm text-[var(--muted)] mb-3">CBE & NBE, Egypt</p>
+              <p class="text-sm text-[var(--fg)] opacity-80">Financial-grade DLT implementation using Hyperledger Indy/Aries for secure, decentralized identity and shared KYC/AML processes.</p>
+            </div>
+
+            <div class="reveal stagger-3 glass-card rounded-2xl p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 text-xs font-medium bg-[rgba(236,72,153,0.15)] text-[#f472b6] rounded-full">Healthcare</span>
+                <span class="text-sm text-[var(--muted)]">2018-2020</span>
+              </div>
+              <h3 class="font-display font-bold text-xl mb-2">National Health Transformation</h3>
+              <p class="text-sm text-[var(--muted)] mb-3">MOH, KSA</p>
+              <p class="text-sm text-[var(--fg)] opacity-80">Architected comprehensive digital health ecosystem integrating heterogeneous EHR systems with cloud-hybrid resiliency.</p>
+            </div>
+
+            <div class="reveal stagger-4 glass-card rounded-2xl p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 text-xs font-medium bg-[rgba(0,212,170,0.15)] text-[var(--accent)] rounded-full">HPC</span>
+                <span class="text-sm text-[var(--muted)]">2015-2019</span>
+              </div>
+              <h3 class="font-display font-bold text-xl mb-2">AI & HPC Platform</h3>
+              <p class="text-sm text-[var(--muted)] mb-3">Saudi Aramco</p>
+              <p class="text-sm text-[var(--fg)] opacity-80">Designed hybrid AI/HPC platform for seismic imaging and reservoir simulation with predictive maintenance models.</p>
+            </div>
+          </div>
+
+          <!-- Timeline -->
+          <div class="reveal stagger-5 glass-card rounded-2xl p-8 mt-8">
+            <h3 class="font-display font-semibold text-xl mb-8">Career Timeline</h3>
+            <div class="space-y-0">
+              <div class="timeline-item">
+                <div class="font-semibold text-[var(--accent)]">2020 - Present</div>
+                <div class="font-display font-semibold mt-1">CTIO | Fixed Solutions Group</div>
+                <p class="text-sm text-[var(--muted)] mt-1">Leading regional ABCD+Q strategy, orchestrating end-to-end innovation initiatives.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="font-semibold text-[var(--accent-secondary)]">1994 - 2020</div>
+                <div class="font-display font-semibold mt-1">Complex Solution Architect | IBM</div>
+                <p class="text-sm text-[var(--muted)] mt-1">Global Business Services & Systems Technology Group - Enterprise transformation projects across 5 continents.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Volunteering Section -->
+    <section class="py-24 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="reveal font-display font-bold text-4xl md:text-5xl mb-4">Leadership & Volunteering</h2>
+          <p class="reveal stagger-1 text-[var(--muted)] text-lg max-w-2xl mx-auto">
+            Building the AI & Quantum ecosystem across Africa and the Middle East.
+          </p>
+        </div>
+
+        <div class="reveal stagger-2 grid md:grid-cols-2 gap-6">
+          <div class="glass-card rounded-2xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--accent)] to-[#00b894] flex items-center justify-center shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a0e17" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-display font-semibold text-lg">IEEE Egypt Industry Consultant Network</h3>
+                <p class="text-sm text-[var(--accent)] mb-2">Consultant</p>
+                <p class="text-sm text-[var(--muted)]">Providing high-level technical advisory to bridge academic research and industrial application.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--accent-secondary)] to-[#0284c7] flex items-center justify-center shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a0e17" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-display font-semibold text-lg">Africa Quantum Consortium (AQC)</h3>
+                <p class="text-sm text-[var(--accent-secondary)] mb-2">Member</p>
+                <p class="text-sm text-[var(--muted)]">Collaborating on pan-African Quantum research and infrastructure initiatives.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#6366f1] to-[#4f46e5] flex items-center justify-center shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a0e17" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-display font-semibold text-lg">Egypt Quantum Computing Community</h3>
+                <p class="text-sm text-[#818cf8] mb-2">Member</p>
+                <p class="text-sm text-[var(--muted)]">Driving local awareness and technical readiness for AI & Quantum technologies.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#ec4899] to-[#db2777] flex items-center justify-center shrink-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0a0e17" stroke-width="2">
+                  <path d="M3 21h18"/><path d="M9 8h1"/><path d="M9 12h1"/><path d="M9 16h1"/><path d="M14 8h1"/><path d="M14 12h1"/><path d="M14 16h1"/><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-display font-semibold text-lg">Egyptian National Network for Quantum Computing & AI</h3>
+                <p class="text-sm text-[#f472b6] mb-2">Member</p>
+                <p class="text-sm text-[var(--muted)]">Advising on national policy and integration of AI with quantum-classical hybrid systems.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Credentials Section -->
+    <section id="credentials" class="py-24 px-6 bg-gradient-to-b from-transparent via-[rgba(14,165,233,0.02)] to-transparent">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="reveal font-display font-bold text-4xl md:text-5xl mb-4">Certifications & Credentials</h2>
+          <p class="reveal stagger-1 text-[var(--muted)] text-lg max-w-2xl mx-auto">
+            Over 60 professional certifications representing decades of continuous learning and expertise validation.
+          </p>
+          <div class="reveal stagger-2 mt-6">
+            <a href="https://www.youracclaim.com/user/sameh-zaghloul" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-[var(--accent)] hover:underline">
+              <span>View all digital credentials</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal stagger-3 grid gap-6">
+          <div class="glass-card rounded-2xl p-8">
+            <h3 class="font-display font-semibold text-xl mb-6 text-[var(--accent)]">Architecture & Leadership</h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="cert-badge">The Open Group Master Architect</span>
+              <span class="cert-badge">IBM Certified IT Architect - Thought Leader</span>
+              <span class="cert-badge">IBM Complex Solution Architect</span>
+              <span class="cert-badge">Architectural Thinking Instructor</span>
+              <span class="cert-badge">IBM Senior Solution Manager</span>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="glass-card rounded-2xl p-6">
+              <h3 class="font-display font-semibold text-lg mb-4 text-[var(--accent-secondary)]">AI & Data Science</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="cert-badge text-sm">Distributed Deep Learning Architect</span>
+                <span class="cert-badge text-sm">Watson Data Platform</span>
+                <span class="cert-badge text-sm">High Performance Data Analytics</span>
+                <span class="cert-badge text-sm">Data Science Professional</span>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6">
+              <h3 class="font-display font-semibold text-lg mb-4 text-[var(--accent-secondary)]">Cloud & Infrastructure</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="cert-badge text-sm">Hybrid Cloud Architect</span>
+                <span class="cert-badge text-sm">Software-Defined Solutions Architect</span>
+                <span class="cert-badge text-sm">IBM Cloud Certified</span>
+                <span class="cert-badge text-sm">Azure & AWS Architect</span>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6">
+              <h3 class="font-display font-semibold text-lg mb-4 text-[var(--accent-secondary)]">Enterprise Systems</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="cert-badge text-sm">SAP/HANA Technology Consultant</span>
+                <span class="cert-badge text-sm">Oracle/Siebel CRM Certified</span>
+                <span class="cert-badge text-sm">IBM Certified PM</span>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6">
+              <h3 class="font-display font-semibold text-lg mb-4 text-[var(--accent-secondary)]">Agile & Blockchain</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="cert-badge text-sm">Scrum Master (CSM)</span>
+                <span class="cert-badge text-sm">Scrum Product Owner (CSPO)</span>
+                <span class="cert-badge text-sm">IBM Blockchain Architect</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="reveal stagger-4 grid md:grid-cols-2 gap-6 mt-8">
+          <div class="glass-card rounded-2xl p-8">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--accent)] to-[var(--accent-secondary)] flex items-center justify-center">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0a0e17" stroke-width="2">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-display font-semibold text-xl">M.Sc. in Engineering</h3>
+                <p class="text-[var(--muted)]">Cairo University, 1992</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card rounded-2xl p-8">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#6366f1] to-[#ec4899] flex items-center justify-center">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0a0e17" stroke-width="2">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-display font-semibold text-xl">B.Sc. in Engineering</h3>
+                <p class="text-[var(--muted)]">Cairo University, 1983-1988</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="reveal font-display font-bold text-4xl md:text-5xl mb-4">Get in Touch</h2>
+          <p class="reveal stagger-1 text-[var(--muted)] text-lg max-w-2xl mx-auto">
+            Available for strategic advisory, architecture consulting, and speaking engagements.
+          </p>
+        </div>
+
+        <div class="reveal stagger-2 glass-card rounded-2xl p-8 md:p-12">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 class="font-display font-semibold text-xl mb-6">Contact Information</h3>
+              <div class="space-y-4">
+                <a href="mailto:samah.saeed@fixed.global" class="flex items-center gap-4 p-4 rounded-xl bg-[rgba(0,212,170,0.05)] border border-[rgba(0,212,170,0.1)] hover:border-[rgba(0,212,170,0.3)] transition-all group">
+                  <div class="w-10 h-10 rounded-lg bg-[var(--accent)] bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-30 transition-all">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="text-sm text-[var(--muted)]">Email</div>
+                    <div class="text-[var(--fg)]">samah.saeed@fixed.global</div>
+                  </div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/pub/sameh-zaghloul/" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 rounded-xl bg-[rgba(14,165,233,0.05)] border border-[rgba(14,165,233,0.1)] hover:border-[rgba(14,165,233,0.3)] transition-all group">
+                  <div class="w-10 h-10 rounded-lg bg-[var(--accent-secondary)] bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-30 transition-all">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--accent-secondary)">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="text-sm text-[var(--muted)]">LinkedIn</div>
+                    <div class="text-[var(--fg)]">linkedin.com/in/pub/sameh-zaghloul</div>
+                  </div>
+                </a>
+
+                <a href="https://www.youracclaim.com/user/sameh-zaghloul" target="_blank" rel="noopener" class="flex items-center gap-4 p-4 rounded-xl bg-[rgba(99,102,241,0.05)] border border-[rgba(99,102,241,0.1)] hover:border-[rgba(99,102,241,0.3)] transition-all group">
+                  <div class="w-10 h-10 rounded-lg bg-[#6366f1] bg-opacity-20 flex items-center justify-center group-hover:bg-opacity-30 transition-all">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="text-sm text-[var(--muted)]">Digital Credentials</div>
+                    <div class="text-[var(--fg)]">youracclaim.com/user/sameh-zaghloul</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-display font-semibold text-xl mb-6">Languages</h3>
+              <div class="space-y-4">
+                <div class="p-4 rounded-xl bg-[rgba(255,255,255,0.02)] border border-[var(--border)]">
+                  <div class="font-semibold mb-1">English</div>
+                  <div class="text-sm text-[var(--muted)]">Excellent (Read, Write, Speak)</div>
+                </div>
+                <div class="p-4 rounded-xl bg-[rgba(255,255,255,0.02)] border border-[var(--border)]">
+                  <div class="font-semibold mb-1">Arabic</div>
+                  <div class="text-sm text-[var(--muted)]">Native (Read, Write, Speak)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 border-t border-[var(--border)]">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-sm text-[var(--muted)]">
+          2026 Eng. Sameh Zaghloul. All rights reserved.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="https://www.linkedin.com/in/pub/sameh-zaghloul/" target="_blank" rel="noopener" class="text-[var(--muted)] hover:text-[var(--accent)] transition-colors" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Initialize all variables first
+    const canvas = document.getElementById('quantum-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId = null;
+    let width = 0;
+    let height = 0;
+    
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Canvas resize function
+    function resizeCanvas() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
+
+    // Particle class
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.max(0.5, Math.random() * 2);
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 0.5;
+        this.opacity = Math.random() * 0.5 + 0.1;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        const safeOpacity = Math.min(1, Math.max(0, this.opacity));
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, Math.max(0.5, this.size), 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 212, 170, ${safeOpacity})`;
+        ctx.fill();
+      }
+    }
+
+    // Initialize particles
+    function initParticles() {
+      particles = [];
+      const particleCount = prefersReducedMotion ? 0 : Math.floor((width * height) / 15000);
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    // Draw connections between particles
+    function drawConnections() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
+            const opacity = Math.min(1, Math.max(0, (1 - distance / 150) * 0.15));
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(0, 212, 170, ${opacity})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    // Animation loop
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      particles.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+
+      drawConnections();
+      animationId = requestAnimationFrame(animate);
+    }
+
+    // Initialize canvas and particles
+    resizeCanvas();
+    initParticles();
+
+    if (!prefersReducedMotion) {
+      animate();
+    }
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initParticles();
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Expertise tabs
+    const tabs = document.querySelectorAll('.expertise-tab');
+    const contents = document.querySelectorAll('.expertise-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-pressed', 'false');
+        });
+        contents.forEach(c => c.classList.remove('active'));
+
+        tab.classList.add('active');
+        tab.setAttribute('aria-pressed', 'true');
+        document.getElementById(`${target}-content`).classList.add('active');
+      });
+    });
+
+    // Mobile menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let menuOpen = false;
+
+    menuToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.style.transform = 'translateX(0)';
+        document.body.style.overflow = 'hidden';
+      } else {
+        mobileMenu.style.transform = 'translateX(100%)';
+        document.body.style.overflow = '';
+      }
+    });
+
+    function closeMobileMenu() {
+      menuOpen = false;
+      mobileMenu.style.transform = 'translateX(100%)';
+      document.body.style.overflow = '';
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
