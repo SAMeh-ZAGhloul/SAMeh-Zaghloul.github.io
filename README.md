@@ -1,162 +1,143 @@
 # SAMeh-Zaghloul.github.io
 
-Personal website for **Eng. Sameh Zaghloul** — CTIO & Enterprise Master IT Architect.
+Personal website for Eng. Sameh Zaghloul — CTIO & Enterprise IT Architect.
+## Overview
+- Single-file site: `index.html` with supporting images in the `images/` folder.
+- Presents executive summary, skills, experience, selected projects, certifications, and a visual gallery.
 
----
+## Preview locally
+Open `index.html` directly in your browser, or run a lightweight server from the project root:
+```bash
+python3 -m http.server 8000
+# then open http://localhost:8000
+```
+
+## Editing
+- Update `index.html` to change content and structure.
+- Add or replace assets in the `images/` directory (profile photo, theme, framework diagrams, PDFs archived separately).
+- After edits run:
+```bash
+git add index.html README.md images/
+git commit -m "Update site content"
+git push
+```
+
+## Recent updates
+- Integrated content from professional PDFs into the page (Experience, Projects, Certifications).
+- Restructured header with navigation and hero metrics, reorganized main sections for clarity, and refreshed gallery styles.
+
+## Contact
+Email: samah.saeed@fixed.global
+LinkedIn: https://www.linkedin.com/in/sameh-zaghloul-00b5151/
+
+## Contributing
+Fork and open a pull request with proposed changes. Keep edits focused to content and images unless otherwise agreed.
+# Eng. Sameh Zaghloul - Personal Portfolio Website
+
+A modern, responsive personal portfolio website showcasing the professional profile of Eng. Sameh Zaghloul, M.Sc., CTIO and Enterprise Master IT Architect.
 
 ## Overview
 
-A modern personal portfolio website showcasing 25+ years of enterprise architecture experience, expertise in AI, Blockchain, Cloud, Data, and Quantum Cryptography, along with 50+ completed projects and 60+ professional certifications.
+This website serves as a comprehensive digital portfolio for Eng. Sameh Zaghloul, highlighting his extensive experience in enterprise architecture, digital transformation, and cutting-edge technologies including AI, Blockchain, Cloud, Data, and Quantum Cryptography.
 
-**Built with:** Jekyll 4.4 • Responsive CSS • Semantic HTML
+## Features
 
----
+- **Responsive Design**: Mobile-first approach with clean, professional styling
+- **Comprehensive Profile**: Detailed sections covering expertise, certifications, and projects
+- **Modern Technologies**: Built with pure HTML, CSS, and semantic web standards
+- **Professional Presentation**: Executive-level content organization and visual hierarchy
 
-## Prerequisites
+## Sections
 
-- **Ruby 3.2+** (required for Jekyll)
-- **Bundler** (Ruby package manager)
+1. **Executive Summary** - Professional overview and key competencies
+2. **Volunteering & Leadership** - Professional affiliations and community involvement
+3. **Enterprise Architecture Domains** - Business, Data, Application, and Technology Architecture expertise
+4. **Core Expertise: The ABCD+Q Framework** - AI, Blockchain, Cybersecurity, Cloud, and Quantum technologies
+5. **National-Scale Digital Transformations** - Major projects and accomplishments
+6. **Certifications & Recognitions** - Professional credentials and achievements
+7. **Academic Background** - Educational qualifications
+8. **Languages** - Professional language capabilities
 
-### Install Ruby (macOS)
+## Technologies Used
 
-```bash
-# Install or update Ruby via Homebrew
-brew install ruby
+- **HTML5** - Semantic markup and structure
+- **CSS3** - Modern styling with CSS Grid and Flexbox
+- **Responsive Design** - Mobile-first approach with media queries
+- **Gradient Backgrounds** - Modern visual effects
+- **Card-based Layout** - Clean, organized content presentation
 
-# Update PATH to use Homebrew Ruby (add to ~/.zshrc)
-echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc
-source ~/.zshrc
+## Design Features
 
-# Verify installation
-ruby -v  # Should show 3.2+
-```
+- **Color Scheme**: Professional blue and gray palette with accent colors
+- **Typography**: Clean, readable fonts with proper hierarchy
+- **Layout**: Grid-based responsive design
+- **Animations**: Subtle hover effects and transitions
+- **Accessibility**: Semantic HTML and proper contrast ratios
 
----
+## Installation
 
-## Quick Start
+This is a static website that can be served directly without any build process:
 
-### 1. Install Dependencies
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/SAMeh-Zaghloul/SAMeh-Zaghloul.github.io.git
+   ```
 
-```bash
-bundle config set path 'vendor/bundle'
-bundle install
-```
+2. Serve locally (optional):
+   ```bash
+   # Using Python 3
+   python -m http.server 8000
+   
+   # Using Node.js
+   npx serve
+   
+   # Using PHP
+   php -S localhost:8000
+   ```
 
-### 2. Preview Locally
+3. Open in browser: `http://localhost:8000`
 
-```bash
-bundle exec jekyll serve --livereload
-```
+## Browser Support
 
-Then open **http://localhost:4000** in your browser.
+- Chrome (Latest)
+- Firefox (Latest)
+- Safari (Latest)
+- Edge (Latest)
 
-### 3. Build for Production
+## Contributing
 
-```bash
-bundle exec jekyll build
-# Output generated in _site/ directory
-```
-
----
-
-## Editing Content
-
-### Update Profile Content
-Edit `index.md` to modify:
-- Executive Summary
-- Core Skills
-- Experience & Roles
-- Selected Projects
-- Certifications & Recognition
-- Gallery (images)
-
-### Customize Layout & Styling
-Edit `_layouts/default.html`:
-- HTML structure
-- CSS variables and styling
-- Header, footer, navigation
-- Responsive design rules
-
-### Add/Replace Images
-Place images in the `images/` folder, then reference in content as:
-```markdown
-![Alt text]({{ site.baseurl }}/images/filename.jpg)
-```
-
-### Site Configuration
-Edit `_config.yml` to change:
-- Site title, description, author
-- Base URL and URL settings
-- Theme and plugin preferences
-
----
-
-## File Structure
-
-```
-.
-├── _layouts/
-│   └── default.html          # Main layout with header/footer/styles
-├── _includes/                # Reusable HTML components (optional)
-├── _posts/                   # Blog posts directory (optional)
-├── assets/
-│   ├── css/                  # Additional CSS files
-│   └── js/                   # JavaScript files
-├── images/                   # Profile photo, logos, diagrams
-├── _config.yml               # Jekyll site configuration
-├── Gemfile                   # Ruby dependencies
-├── Gemfile.lock              # Dependency lock file
-├── index.md                  # Home page content (front matter + markdown)
-├── README.md                 # This file
-└── .gitignore                # Git ignore rules
-```
-
----
-
-## Publishing to GitHub Pages
-
-All changes pushed to the `main` branch are automatically deployed:
-
-```bash
-git add .
-git commit -m "Update profile content"
-git push origin main
-```
-
-GitHub Pages rebuilds and publishes your site within minutes.
-
----
-
-## Troubleshooting
-
-### Jekyll not found after Ruby update
-```bash
-gem install jekyll bundler
-```
-
-### Permission errors during bundle install
-```bash
-bundle config set path 'vendor/bundle'
-bundle install
-```
-
-### Site not rebuilding on file changes
-Restart the development server:
-```bash
-bundle exec jekyll serve --livereload
-```
-
----
-
-## Contact & Links
-
-- **Email:** samah.saeed@fixed.global
-- **LinkedIn:** https://www.linkedin.com/in/sameh-zaghloul-00b5151/
-- **Digital Credentials:** https://www.youracclaim.com/user/sameh-zaghlou
-- **Company:** Fixed Solutions Group
-
----
+This is a personal portfolio website. For any suggestions or improvements, please contact the owner directly.
 
 ## License
 
-© 2024 Eng. Sameh Zaghloul. All rights reserved.
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+- **Email**: samah.saeed@fixed.global
+- **LinkedIn**: [sameh-zaghloul](https://www.linkedin.com/in/pub/sameh-zaghloul/)
+- **Digital Credentials**: [youracclaim.com/user/sameh-zaghloul](https://www.youracclaim.com/user/sameh-zaghloul)
+
+## Professional Profile
+
+Eng. Sameh Zaghloul is a Learn-it-ALL Master IT Solution Architect (Open Group Certified) with over 30 years of hands-on leadership in driving large-scale, mission-critical digital transformation programs. His expertise spans across Government, Banking, Telecommunications, Healthcare, and Defense sectors.
+
+### Key Expertise Areas
+
+- **Enterprise Architecture**: Business, Data, Application, and Technology Architecture
+- **Emerging Technologies**: AI/ML, Blockchain, Quantum Computing, Cloud Computing
+- **Digital Transformation**: National-scale projects and enterprise modernization
+- **Cybersecurity**: Post-Quantum Cryptography and secure infrastructure design
+
+### Certifications
+
+- The Open Group: Certified Master Architect
+- Scrum Alliance: Certified Scrum Master
+- IBM: Complex Solution Architect (CSA)
+- IBM: Certified IT Architect (Thought Leader)
+- IBM: Certified Blockchain Architect
+- And 60+ additional industry certifications
+
+---
+
+*This portfolio represents a professional commitment to excellence in enterprise architecture and digital innovation.*
