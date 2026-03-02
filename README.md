@@ -1,143 +1,145 @@
-# SAMeh-Zaghloul.github.io
-
-Personal website for Eng. Sameh Zaghloul — CTIO & Enterprise IT Architect.
-## Overview
-- Single-file site: `index.html` with supporting images in the `images/` folder.
-- Presents executive summary, skills, experience, selected projects, certifications, and a visual gallery.
-
-## Preview locally
-Open `index.html` directly in your browser, or run a lightweight server from the project root:
-```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
-```
-
-## Editing
-- Update `index.html` to change content and structure.
-- Add or replace assets in the `images/` directory (profile photo, theme, framework diagrams, PDFs archived separately).
-- After edits run:
-```bash
-git add index.html README.md images/
-git commit -m "Update site content"
-git push
-```
-
-## Recent updates
-- Integrated content from professional PDFs into the page (Experience, Projects, Certifications).
-- Restructured header with navigation and hero metrics, reorganized main sections for clarity, and refreshed gallery styles.
-
-## Contact
-Email: samah.saeed@fixed.global
-LinkedIn: https://www.linkedin.com/in/sameh-zaghloul-00b5151/
-
-## Contributing
-Fork and open a pull request with proposed changes. Keep edits focused to content and images unless otherwise agreed.
-# Eng. Sameh Zaghloul - Personal Portfolio Website
-
-A modern, responsive personal portfolio website showcasing the professional profile of Eng. Sameh Zaghloul, M.Sc., CTIO and Enterprise Master IT Architect.
-
-## Overview
-
-This website serves as a comprehensive digital portfolio for Eng. Sameh Zaghloul, highlighting his extensive experience in enterprise architecture, digital transformation, and cutting-edge technologies including AI, Blockchain, Cloud, Data, and Quantum Cryptography.
-
-## Features
-
-- **Responsive Design**: Mobile-first approach with clean, professional styling
-- **Comprehensive Profile**: Detailed sections covering expertise, certifications, and projects
-- **Modern Technologies**: Built with pure HTML, CSS, and semantic web standards
-- **Professional Presentation**: Executive-level content organization and visual hierarchy
-
-## Sections
-
-1. **Executive Summary** - Professional overview and key competencies
-2. **Volunteering & Leadership** - Professional affiliations and community involvement
-3. **Enterprise Architecture Domains** - Business, Data, Application, and Technology Architecture expertise
-4. **Core Expertise: The ABCD+Q Framework** - AI, Blockchain, Cybersecurity, Cloud, and Quantum technologies
-5. **National-Scale Digital Transformations** - Major projects and accomplishments
-6. **Certifications & Recognitions** - Professional credentials and achievements
-7. **Academic Background** - Educational qualifications
-8. **Languages** - Professional language capabilities
-
-## Technologies Used
-
-- **HTML5** - Semantic markup and structure
-- **CSS3** - Modern styling with CSS Grid and Flexbox
-- **Responsive Design** - Mobile-first approach with media queries
-- **Gradient Backgrounds** - Modern visual effects
-- **Card-based Layout** - Clean, organized content presentation
-
-## Design Features
-
-- **Color Scheme**: Professional blue and gray palette with accent colors
-- **Typography**: Clean, readable fonts with proper hierarchy
-- **Layout**: Grid-based responsive design
-- **Animations**: Subtle hover effects and transitions
-- **Accessibility**: Semantic HTML and proper contrast ratios
-
-## Installation
-
-This is a static website that can be served directly without any build process:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/SAMeh-Zaghloul/SAMeh-Zaghloul.github.io.git
-   ```
-
-2. Serve locally (optional):
-   ```bash
-   # Using Python 3
-   python -m http.server 8000
-   
-   # Using Node.js
-   npx serve
-   
-   # Using PHP
-   php -S localhost:8000
-   ```
-
-3. Open in browser: `http://localhost:8000`
-
-## Browser Support
-
-- Chrome (Latest)
-- Firefox (Latest)
-- Safari (Latest)
-- Edge (Latest)
-
-## Contributing
-
-This is a personal portfolio website. For any suggestions or improvements, please contact the owner directly.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Contact
-
-- **Email**: samah.saeed@fixed.global
-- **LinkedIn**: [sameh-zaghloul](https://www.linkedin.com/in/pub/sameh-zaghloul/)
-- **Digital Credentials**: [youracclaim.com/user/sameh-zaghloul](https://www.youracclaim.com/user/sameh-zaghloul)
+# Eng. Sameh Zaghloul | Enterprise Master IT Architect
 
 ## Professional Profile
 
-Eng. Sameh Zaghloul is a Learn-it-ALL Master IT Solution Architect (Open Group Certified) with over 30 years of hands-on leadership in driving large-scale, mission-critical digital transformation programs. His expertise spans across Government, Banking, Telecommunications, Healthcare, and Defense sectors.
+**M.Sc. | Enterprise Master IT Architect**  
+CTIO at Fixed Solutions Group with 30+ years leading mission-critical digital transformations across Government, Banking, Telecommunications, Healthcare, and Defense sectors.
 
-### Key Expertise Areas
+### Core Expertise
 
-- **Enterprise Architecture**: Business, Data, Application, and Technology Architecture
-- **Emerging Technologies**: AI/ML, Blockchain, Quantum Computing, Cloud Computing
-- **Digital Transformation**: National-scale projects and enterprise modernization
-- **Cybersecurity**: Post-Quantum Cryptography and secure infrastructure design
+**ABCD+Q Framework** - A uniquely π-shaped profile blending deep technical expertise with broad strategic foundation for seamless cross-domain integration:
 
-### Certifications
+- **Artificial Intelligence** - LLMOps, GenAI, Distributed Deep Learning
+- **Blockchain** - Hyperledger, Web3, Decentralized Identity
+- **Cloud** - Hybrid, Multi-Cloud, IaaS/PaaS
+- **Data** - Big Data, HPDA, Computer Vision
+- **Quantum Cryptography** - Post-Quantum Security, PQC Migration
 
-- The Open Group: Certified Master Architect
-- Scrum Alliance: Certified Scrum Master
-- IBM: Complex Solution Architect (CSA)
-- IBM: Certified IT Architect (Thought Leader)
-- IBM: Certified Blockchain Architect
-- And 60+ additional industry certifications
+### Key Achievements
+
+- **30+ Years Experience** in enterprise architecture and digital transformation
+- **60+ Certifications** across architecture, AI, cloud, and emerging technologies
+- **5 Continents Served** with global project delivery
+- **National Strategy Leadership** - Authoring Egypt's National Quantum Cryptography Strategy
+
+### Technical Leadership
+
+#### AI & Data Science
+- Production-grade AI platform architecture
+- Distributed deep learning architectures
+- Scalable inference pipelines
+- High-Performance Computing specialist
+- Seismic imaging pipelines (Aramco)
+- Global demand forecasting (Coca-Cola)
+
+#### Blockchain & Web3
+- Enterprise Frameworks (Hyperledger Fabric & Indy, R3 Corda)
+- National Identity Systems (Decentralized Identity, Decentralized PKI)
+- Financial-grade DLT implementation
+- Nationwide eKYC platforms
+
+#### Quantum & Security
+- Post-Quantum Cryptography (PQC) strategy development
+- Hybrid migration models for quantum readiness
+- Q-Day risk assessment frameworks
+- Cyber resilience for mission-critical infrastructure
+
+#### Cloud Infrastructure
+- Hybrid MultiCloud architecture (IBM, Azure, AWS certified)
+- Software-Defined Infrastructure (SDN/SDS)
+- SAP/Oracle workload migration
+- Disaster recovery design
+
+### Selected Projects
+
+#### National Quantum Cryptography Strategy (2025)
+**MCIT, Egypt** | Strategy Lead / Master Architect
+- Authoring the transition roadmap for Post-Quantum Cryptography (PQC)
+- Designing hybrid migration models and Q-Day risk assessment frameworks
+- Safeguarding national data integrity against quantum threats
+
+#### AI Digital Transformation & LLMOps (2026)
+**EEHC, Egypt** | Lead Architect
+- Designing production-grade Generative AI & LLMOps architectures
+- Distributed deep learning pipelines for national utility optimization
+
+#### Central Bank eKYC Blockchain (2017-2021)
+**CBE & NBE, Egypt** | Lead Architect
+- Financial-grade DLT implementation using Hyperledger Indy/Aries
+- Secure, decentralized identity and shared KYC/AML processes
+
+#### National Health Transformation (2018-2020)
+**MOH, KSA** | Lead Architect
+- Comprehensive digital health ecosystem integration
+- Heterogeneous EHR systems with cloud-hybrid resiliency
+
+#### AI & HPC Platform (2015-2019)
+**Saudi Aramco** | Lead Architect
+- Hybrid AI/HPC platform for seismic imaging and reservoir simulation
+- Predictive maintenance models implementation
+
+### Certifications & Credentials
+
+#### Architecture & Leadership
+- The Open Group Master Architect
+- IBM Certified IT Architect - Thought Leader
+- IBM Complex Solution Architect
+- Architectural Thinking Instructor
+- IBM Senior Solution Manager
+
+#### AI & Data Science
+- Distributed Deep Learning Architect
+- Watson Data Platform
+- High Performance Data Analytics
+- Data Science Professional
+
+#### Cloud & Infrastructure
+- Hybrid Cloud Architect
+- Software-Defined Solutions Architect
+- IBM Cloud Certified
+- Azure & AWS Architect
+
+#### Enterprise Systems
+- SAP/HANA Technology Consultant
+- Oracle/Siebel CRM Certified
+- IBM Certified PM
+
+#### Agile & Blockchain
+- Scrum Master (CSM)
+- Scrum Product Owner (CSPO)
+- IBM Blockchain Architect
+
+### Education
+
+- **M.Sc. in Engineering** - Cairo University, 1992
+- **B.Sc. in Engineering** - Cairo University, 1988
+
+### Professional Experience
+
+#### CTIO | Fixed Solutions Group (2020 - Present)
+Leading regional ABCD+Q strategy, orchestrating end-to-end innovation initiatives.
+
+#### Complex Solution Architect | IBM (1994 - 2020)
+Global Business Services & Systems Technology Group - Enterprise transformation projects across 5 continents.
+
+### Leadership & Volunteering
+
+- **IEEE Egypt Industry Consultant Network** - Consultant
+- **Africa Quantum Consortium (AQC)** - Member
+- **Egypt Quantum Computing Community** - Member
+- **Egyptian National Network for Quantum Computing & AI** - Member
+
+### Contact Information
+
+- **Email:** samah.saeed@fixed.global
+- **LinkedIn:** [linkedin.com/in/pub/sameh-zaghloul](https://www.linkedin.com/in/pub/sameh-zaghloul)
+- **Digital Credentials:** [youracclaim.com/user/sameh-zaghloul](https://www.youracclaim.com/user/sameh-zaghloul)
+
+### Languages
+
+- **English:** Excellent (Read, Write, Speak)
+- **Arabic:** Native (Read, Write, Speak)
 
 ---
 
-*This portfolio represents a professional commitment to excellence in enterprise architecture and digital innovation.*
+*Available for strategic advisory, architecture consulting, and speaking engagements.*
